@@ -19,7 +19,7 @@
  (name aoc24)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml)
+ (depends ocaml base)
  (tags
   ("add topics" "to describe" your project)))
 
