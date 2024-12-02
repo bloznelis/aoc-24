@@ -1,3 +1,8 @@
+let ( >> ) f g x = g (f x)
+
+(*Horrible performance but who cares*)
+let drop_last ls = ls |> List.rev |> List.tl |> List.rev
+
 let rec transpose list =
     match list with
         | [] -> []
