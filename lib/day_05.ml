@@ -1,4 +1,15 @@
-type parsed = { orders : (string * string) list; updates : string list list }
+module StringPair = struct
+  type t = string * string
+
+  let compare (a1, b1) (a2, b2) =
+      match String.compare a1 a2 with
+          | 0 -> String.compare b1 b2
+          | cmp -> cmp
+end
+
+module StringPairSet = Set.Make (StringPair)
+
+type parsed = { orders : StringPairSet.t; updates : string list list }
 
 let parse parsed : parsed =
     let lines = Base.String.split_lines parsed in
@@ -11,6 +22,7 @@ let parse parsed : parsed =
         |> List.map (fun line ->
                let split = String.split_on_char '|' line in
                    (List.nth split 0, List.nth split 1))
+        |> List.to_seq |> StringPairSet.of_seq
     in
     let updates = List.map (fun line -> String.split_on_char ',' line) second_part in
 
@@ -20,9 +32,7 @@ let validate update parsed : bool =
     let rec go rem : bool =
         match rem with
             | head :: next :: tail ->
-                let mapping_exists =
-                    List.find_opt (fun a -> a = (head, next)) parsed.orders |> Option.is_some
-                in
+                let mapping_exists = StringPairSet.mem (head, next) parsed.orders in
                     if mapping_exists then
                       go (next :: tail)
                     else
@@ -45,7 +55,7 @@ let pair_up elem list : (string * string) list =
         go list []
 
 let match_count pairs order : int =
-    List.filter (fun pair -> List.mem pair pairs) order |> List.length
+    List.filter (fun pair -> StringPairSet.mem pair order) pairs |> List.length
 
 let fix_line line parsed : string list =
     List.map
