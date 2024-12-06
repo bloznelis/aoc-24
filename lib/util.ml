@@ -32,3 +32,12 @@ let neighbours (x, y) : (int * int) list =
 
 let safe_get (x, y) matrix : 'a option =
     List.nth_opt matrix y |> Option.map (fun row -> List.nth_opt row x) |> Option.join
+
+let array_nth_opt arr i =
+    if i < 0 || i >= Array.length arr then
+      None
+    else
+      Some arr.(i)
+
+let safe_get_a (x, y) matrix : 'a option =
+    array_nth_opt matrix y |> Option.map (fun row -> array_nth_opt row x) |> Option.join

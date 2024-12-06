@@ -9,5 +9,7 @@ let () =
     (*Aoc24.Util.read_file "input/day_03.txt" |> Aoc24.Day_03.part2 |> print_answer "Day 3 Part 2: "*)
     (*Aoc24.Util.read_file "input/day_04.txt" |> Aoc24.Day_04.part1 |> print_answer "Day 4 Part 1: ";*)
     (*Aoc24.Util.read_file "input/day_04.txt" |> Aoc24.Day_04.part2 |> print_answer "Day 4 Part 2: "*)
-    Aoc24.Util.read_file "input/day_05.txt" |> Aoc24.Day_05.part1 |> print_answer "Day 5 Part 1: ";
-    Aoc24.Util.read_file "input/day_05.txt" |> Aoc24.Day_05.part2 |> print_answer "Day 5 Part 2: "
+    (*Aoc24.Util.read_file "input/day_05.txt" |> Aoc24.Day_05.part1 |> print_answer "Day 5 Part 1: ";*)
+    (*Aoc24.Util.read_file "input/day_05.txt" |> Aoc24.Day_05.part2 |> print_answer "Day 5 Part 2: "*)
+    Aoc24.Util.read_file "input/day_06.txt" |> Aoc24.Day_06.part1 |> print_answer "Day 6 Part 1: ";
+    Aoc24.Util.read_file "input/day_06.txt" |> Aoc24.Day_06.part2 |> print_answer "Day 6 Part 2: "
