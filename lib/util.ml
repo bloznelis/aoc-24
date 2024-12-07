@@ -41,3 +41,19 @@ let array_nth_opt arr i =
 
 let safe_get_a (x, y) matrix : 'a option =
     array_nth_opt matrix y |> Option.map (fun row -> array_nth_opt row x) |> Option.join
+
+let pretty_print_string_list (lst : int list) : string =
+  let quoted = List.map (fun s -> "\"" ^ string_of_int s ^ "\"") lst in
+  "[" ^ (String.concat "; " quoted) ^ "]"
+
+(*Clojure's re-seq *)
+let re_seq regex str =
+  let re = Str.regexp regex in
+  let rec aux pos =
+    try
+      let _ = Str.search_forward re str pos in
+      let match_str = Str.matched_string str in
+      match_str :: aux (Str.match_end ())
+    with Not_found -> []
+  in
+  aux 0
