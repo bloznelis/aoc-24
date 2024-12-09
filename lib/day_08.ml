@@ -30,16 +30,16 @@ let pair_up elem list =
   in
   go list []
 
-let pair_antennas antennas = List.map (fun elem -> pair_up elem antennas) antennas |> List.flatten
+let pair_antennas antennas = List.concat_map (fun elem -> pair_up elem antennas) antennas
 
 let filter_outside matrix antinodes =
   List.filter (fun antinode -> Util.safe_get_a antinode matrix |> Option.is_some) antinodes
 
 let find_antinodes antennas _ =
-  pair_antennas antennas |> List.map (fun (a, b) -> calc_antinodes a b) |> List.flatten
+  pair_antennas antennas |> List.concat_map (fun (a, b) -> calc_antinodes a b)
 
 let find_anitnodes_2 antennas matrix =
-  pair_antennas antennas |> List.map (fun (a, b) -> calc_antinodes_2 matrix a b) |> List.flatten
+  pair_antennas antennas |> List.concat_map (fun (a, b) -> calc_antinodes_2 matrix a b)
 
 let solve antinodes_fn matrix =
   group_antennas matrix
