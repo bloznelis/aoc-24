@@ -1,3 +1,4 @@
 (library
  (name aoc24)
- (libraries base str))
+ (libraries base str)
+ (preprocess (pps ppx_deriving.show ppx_deriving.ord)))
