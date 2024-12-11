@@ -7,7 +7,7 @@ end
 
 module IntTupleHashtbl = Hashtbl.Make (IntTuple)
 
-let even_digits stone : bool = String.length (string_of_int stone) mod 2 = 0
+let even_digits stone : bool = string_of_int stone |> String.length |> fun x -> x land 1 = 0
 
 let split stone : int list =
   let str = string_of_int stone in
