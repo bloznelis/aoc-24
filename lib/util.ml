@@ -65,3 +65,5 @@ let re_seq regex str =
 (*  go list*)
 
 let last array : 'a option = array_nth_opt array (Array.length array - 1)
+
+let tuple_to_string (a, b) = Printf.sprintf "(%d, %d)" a b
