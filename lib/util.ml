@@ -60,10 +60,8 @@ let re_seq regex str =
   in
   aux 0
 
-(*let last list : 'a option =*)
-(*  let rec go rem = match rem with head :: [] -> Some head | _ :: tail -> go tail | [] -> None in*)
-(*  go list*)
-
 let last array : 'a option = array_nth_opt array (Array.length array - 1)
 
 let tuple_to_string (a, b) = Printf.sprintf "(%d, %d)" a b
+
+let print matrix = Array.iter (fun line -> print_endline (Base.String.of_array line)) matrix

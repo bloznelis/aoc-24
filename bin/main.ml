@@ -23,5 +23,7 @@ let () =
   (*Aoc24.Util.read_file "input/day_10.txt" |> Aoc24.Day_10.part2 |> print_answer "Day 10 Part 2: "*)
   (*Aoc24.Util.read_file "input/day_11.txt" |> Aoc24.Day_11.part1 |> print_answer "Day 11 Part 1: ";*)
   (*Aoc24.Util.read_file "input/day_11.txt" |> Aoc24.Day_11.part2 |> print_answer "Day 11 Part 2: "*)
-  Aoc24.Util.read_file "input/day_14.txt" |> Aoc24.Day_14.part1 |> print_answer "Day 14 Part 1: ";
-  Aoc24.Util.read_file "input/day_14.txt" |> Aoc24.Day_14.part2 |> print_answer "Day 14 Part 2: "
+  (*Aoc24.Util.read_file "input/day_14.txt" |> Aoc24.Day_14.part1 |> print_answer "Day 14 Part 1: ";*)
+  (*Aoc24.Util.read_file "input/day_14.txt" |> Aoc24.Day_14.part2 |> print_answer "Day 14 Part 2: "*)
+  Aoc24.Util.read_file "input/day_15.txt" |> Aoc24.Day_15.part1 |> print_answer "Day 15 Part 1: ";
+  Aoc24.Util.read_file "input/day_15.txt" |> Aoc24.Day_15.part2 |> print_answer "Day 15 Part 2: "
