@@ -36,6 +36,14 @@ let neighbours (x, y) : (int * int) list =
   ]
   |> List.filter (fun (x, y) -> x >= 0 && y >= 0)
 
+let neighbours_4 (x, y) : (int * int) list =
+  [
+    (x + 1, y);
+    (x - 1, y);
+    (x, y + 1);
+    (x, y - 1);
+  ]
+
 let safe_get (x, y) matrix : 'a option =
   List.nth_opt matrix y |> Option.map (fun row -> List.nth_opt row x) |> Option.join
 
